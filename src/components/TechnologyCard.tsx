@@ -1,7 +1,16 @@
+import type React from "react";
 import type { Itechnologies } from "../types/technologiesType";
 import { FaStar } from "react-icons/fa";
-const TechnologyCard = ({ technology }: { technology: Itechnologies }) => {
-  console.log(technology);
+interface TechnologyCardProps {
+  technology: Itechnologies;
+  addToStack: Itechnologies[];
+  setAddToStack: React.Dispatch<React.SetStateAction<Itechnologies[]>>;
+}
+const TechnologyCard = ({
+  technology,
+  setAddToStack,
+  addToStack,
+}: TechnologyCardProps) => {
   return (
     <div className="card w-full max-w-[316px] border border-slate-200 bg-base-100 shadow-sm">
       <div className="card-body p-6">
@@ -48,7 +57,10 @@ const TechnologyCard = ({ technology }: { technology: Itechnologies }) => {
         </div>
 
         {/* Button */}
-        <button className="btn mt-2 min-h-10 h-10 w-full border-0 bg-[#080D1B] text-sm font-medium text-white hover:bg-slate-800">
+        <button
+          onClick={() => setAddToStack([...addToStack, technology])}
+          className="btn mt-2 min-h-10 h-10 w-full border-0 bg-[#080D1B] text-sm font-medium text-white hover:bg-slate-800"
+        >
           Add to Stack
         </button>
       </div>
