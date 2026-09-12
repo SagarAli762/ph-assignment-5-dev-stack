@@ -36,15 +36,21 @@ const YourStack = ({
 
       {/* Selected Technologies */}
       <div className="mt-3 space-y-2">
-        {addToStack.map((stacked) => (
-          <YourStackCard
-            addToStack={addToStack}
-            setAddToStack={setAddToStack}
-            key={stacked.id}
-            stacked={stacked}
-            handleRemovedIdFromStack={handleRemovedIdFromStack}
-          ></YourStackCard>
-        ))}
+        {addToStack.length === 0 ? (
+          <div className="flex h-[100px] items-center justify-center rounded-md border border-dashed border-slate-200">
+            <p className="text-[11px] text-slate-400">Your stack is empty</p>
+          </div>
+        ) : (
+          addToStack.map((stacked) => (
+            <YourStackCard
+              addToStack={addToStack}
+              setAddToStack={setAddToStack}
+              key={stacked.id}
+              stacked={stacked}
+              handleRemovedIdFromStack={handleRemovedIdFromStack}
+            ></YourStackCard>
+          ))
+        )}
       </div>
 
       {/* Remove All */}
