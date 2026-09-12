@@ -14,6 +14,7 @@ const Technologies = ({ technologiesPromise }: technologiesProps) => {
   const [removedTechnologyId, setRemovedTechnologyId] = useState<string | null>(
     null,
   );
+  const [resetAll, setResetAll] = useState<boolean>(false);
 
   return (
     <div className="container mx-auto my-20">
@@ -35,6 +36,8 @@ const Technologies = ({ technologiesPromise }: technologiesProps) => {
               setAddToStack={setAddToStack}
               addToStack={addToStack}
               removedTechnologyId={removedTechnologyId}
+              resetAll={resetAll}
+              setResetAll={setResetAll}
             ></TechnologyCard>
           ))}
         </div>
@@ -46,6 +49,7 @@ const Technologies = ({ technologiesPromise }: technologiesProps) => {
             addToStack={addToStack}
             setAddToStack={setAddToStack}
             setRemovedTechnologyId={setRemovedTechnologyId}
+            setResetAll={setResetAll}
           ></YourStack>
         </div>
       </div>

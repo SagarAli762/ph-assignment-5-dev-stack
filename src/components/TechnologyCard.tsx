@@ -8,6 +8,8 @@ interface TechnologyCardProps {
   addToStack: Itechnologies[];
   setAddToStack: React.Dispatch<React.SetStateAction<Itechnologies[]>>;
   removedTechnologyId: string | null;
+  resetAll: boolean;
+  setResetAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const TechnologyCard = ({
@@ -15,14 +17,23 @@ const TechnologyCard = ({
   setAddToStack,
   addToStack,
   removedTechnologyId,
+  resetAll,
+  setResetAll,
 }: TechnologyCardProps) => {
   const [isAdded, setIsAdded] = useState<boolean>(false);
-  // Remove হলে isAdded আবার false হবে
+  // single item remove from stack
   useEffect(() => {
     if (removedTechnologyId === technology.id) {
       setIsAdded(false);
     }
   }, [removedTechnologyId, technology.id]);
+  // all item remove from stack
+  useEffect(() => {
+    if (resetAll) {
+      setIsAdded(false);
+      setResetAll(false);
+    }
+  }, [resetAll, setResetAll]);
   const handleAddedToStack = (): void => {
     setAddToStack([...addToStack, technology]);
     setIsAdded(true);

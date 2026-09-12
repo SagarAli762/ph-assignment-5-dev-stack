@@ -5,17 +5,24 @@ interface YourStackProps {
   addToStack: Itechnologies[];
   setAddToStack: React.Dispatch<React.SetStateAction<Itechnologies[]>>;
   setRemovedTechnologyId: React.Dispatch<React.SetStateAction<string | null>>;
+  setResetAll: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const YourStack = ({
   addToStack,
   setAddToStack,
   setRemovedTechnologyId,
+  setResetAll,
 }: YourStackProps) => {
   const handleRemovedIdFromStack = (stakedId: string): void => {
     setAddToStack(addToStack.filter((item) => item.id !== stakedId));
     setRemovedTechnologyId(stakedId);
   };
+  const handleRemoveAll = (): void => {
+    setAddToStack([]);
+    setResetAll(true);
+  };
+
   return (
     <div className="w-full max-w-[316px] rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
       {/* Header */}
@@ -42,6 +49,7 @@ const YourStack = ({
 
       {/* Remove All */}
       <button
+        onClick={handleRemoveAll}
         className="mt-8 h-[24px] w-full rounded-md border border-red-200
         bg-white text-[10px] font-medium text-red-500
         hover:bg-red-50"
