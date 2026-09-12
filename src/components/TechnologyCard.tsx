@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Itechnologies } from "../types/technologiesType";
 import { FaStar } from "react-icons/fa";
+import { useState } from "react";
 interface TechnologyCardProps {
   technology: Itechnologies;
   addToStack: Itechnologies[];
@@ -11,6 +12,11 @@ const TechnologyCard = ({
   setAddToStack,
   addToStack,
 }: TechnologyCardProps) => {
+  const [isAdded, setIsAdded] = useState(false);
+  const handleAddedToStack = (): void => {
+    setAddToStack([...addToStack, technology]);
+    setIsAdded(true);
+  };
   return (
     <div className="card w-full max-w-[316px] border border-slate-200 bg-base-100 shadow-sm">
       <div className="card-body p-6">
@@ -58,10 +64,15 @@ const TechnologyCard = ({
 
         {/* Button */}
         <button
-          onClick={() => setAddToStack([...addToStack, technology])}
-          className="btn mt-2 min-h-10 h-10 w-full border-0 bg-[#080D1B] text-sm font-medium text-white hover:bg-slate-800"
+          onClick={handleAddedToStack}
+          className={`btn mt-2 h-10 min-h-10 w-full border-0 text-sm font-medium text-white ${
+            isAdded
+              ? "cursor-not-allowed bg-slate-400"
+              : "bg-[#080D1B] hover:bg-slate-800"
+          }`}
+          disabled={isAdded}
         >
-          Add to Stack
+          {isAdded ? "Added" : "Add to Stack"}
         </button>
       </div>
     </div>
