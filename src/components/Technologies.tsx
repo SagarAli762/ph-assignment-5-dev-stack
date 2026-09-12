@@ -11,7 +11,10 @@ interface technologiesProps {
 const Technologies = ({ technologiesPromise }: technologiesProps) => {
   const technologies = use(technologiesPromise);
   const [addToStack, setAddToStack] = useState<Itechnologies[]>([]);
-  console.log(addToStack);
+  const [removedTechnologyId, setRemovedTechnologyId] = useState<string | null>(
+    null,
+  );
+
   return (
     <div className="container mx-auto my-20">
       <h2 className="font-bold md:text-[36px]">
@@ -31,6 +34,7 @@ const Technologies = ({ technologiesPromise }: technologiesProps) => {
               technology={technology}
               setAddToStack={setAddToStack}
               addToStack={addToStack}
+              removedTechnologyId={removedTechnologyId}
             ></TechnologyCard>
           ))}
         </div>
@@ -38,7 +42,11 @@ const Technologies = ({ technologiesPromise }: technologiesProps) => {
           {/* {addToStack.map((stacked: Itechnologies) => (
             <YourStack key={stacked.id} stacked={stacked}></YourStack>
           ))} */}
-          <YourStack addToStack={addToStack}></YourStack>
+          <YourStack
+            addToStack={addToStack}
+            setAddToStack={setAddToStack}
+            setRemovedTechnologyId={setRemovedTechnologyId}
+          ></YourStack>
         </div>
       </div>
     </div>

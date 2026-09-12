@@ -3,9 +3,19 @@ import YourStackCard from "./YourStackCard";
 
 interface YourStackProps {
   addToStack: Itechnologies[];
+  setAddToStack: React.Dispatch<React.SetStateAction<Itechnologies[]>>;
+  setRemovedTechnologyId: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const YourStack = ({ addToStack }: YourStackProps) => {
+const YourStack = ({
+  addToStack,
+  setAddToStack,
+  setRemovedTechnologyId,
+}: YourStackProps) => {
+  const handleRemovedIdFromStack = (stakedId: string): void => {
+    setAddToStack(addToStack.filter((item) => item.id !== stakedId));
+    setRemovedTechnologyId(stakedId);
+  };
   return (
     <div className="w-full max-w-[316px] rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
       {/* Header */}
@@ -20,7 +30,13 @@ const YourStack = ({ addToStack }: YourStackProps) => {
       {/* Selected Technologies */}
       <div className="mt-3 space-y-2">
         {addToStack.map((stacked) => (
-          <YourStackCard key={stacked.id} stacked={stacked} />
+          <YourStackCard
+            addToStack={addToStack}
+            setAddToStack={setAddToStack}
+            key={stacked.id}
+            stacked={stacked}
+            handleRemovedIdFromStack={handleRemovedIdFromStack}
+          ></YourStackCard>
         ))}
       </div>
 

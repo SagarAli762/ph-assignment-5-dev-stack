@@ -1,18 +1,28 @@
 import type React from "react";
 import type { Itechnologies } from "../types/technologiesType";
 import { FaStar } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 interface TechnologyCardProps {
   technology: Itechnologies;
   addToStack: Itechnologies[];
   setAddToStack: React.Dispatch<React.SetStateAction<Itechnologies[]>>;
+  removedTechnologyId: string | null;
 }
+
 const TechnologyCard = ({
   technology,
   setAddToStack,
   addToStack,
+  removedTechnologyId,
 }: TechnologyCardProps) => {
-  const [isAdded, setIsAdded] = useState(false);
+  const [isAdded, setIsAdded] = useState<boolean>(false);
+  // Remove হলে isAdded আবার false হবে
+  useEffect(() => {
+    if (removedTechnologyId === technology.id) {
+      setIsAdded(false);
+    }
+  }, [removedTechnologyId, technology.id]);
   const handleAddedToStack = (): void => {
     setAddToStack([...addToStack, technology]);
     setIsAdded(true);
