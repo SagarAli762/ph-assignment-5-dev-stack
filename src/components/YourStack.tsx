@@ -19,6 +19,10 @@ const YourStack = ({
     const restAddToStack = addToStack.filter((item) => item.id !== stakedId);
     setAddToStack(restAddToStack);
     setRemovedTechnologyId(stakedId);
+    const removedItem = addToStack.find((item) => item.id === stakedId);
+    if (removedItem) {
+      toast.error(`${removedItem.name} removed successfully`);
+    }
   };
   const handleRemoveAll = (): void => {
     setAddToStack([]);
