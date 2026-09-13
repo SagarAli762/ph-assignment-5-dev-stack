@@ -17,8 +17,14 @@ function App() {
     <>
       <Navbar></Navbar>
       <Hero></Hero>
-      <Suspense fallback={<h2>Loading....</h2>}>
-        <Technologies technologiesPromise={technologiesPromise}></Technologies>
+      <Suspense
+        fallback={
+          <div className="flex min-h-[300px] items-center justify-center">
+            <span className="loading loading-spinner loading-lg text-purple-600"></span>
+          </div>
+        }
+      >
+        <Technologies technologiesPromise={technologiesPromise} />
       </Suspense>
       <Footer></Footer>
     </>
