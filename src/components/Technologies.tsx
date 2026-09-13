@@ -24,10 +24,10 @@ const Technologies = ({ technologiesPromise }: technologiesProps) => {
           Technologies
         </span>
       </h2>
-      <p className="text-[14px] md:text-[18px]">
+      <p className="text-[14px] md:text-[18px] pt-2">
         Pick one technology per category to build your ideal stack.
       </p>
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 mt-10">
         <div className="col-span-9 grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-3">
           {technologies.map((technology: Itechnologies) => (
             <TechnologyCard

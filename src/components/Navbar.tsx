@@ -43,7 +43,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <img src={logo} alt="" />
+        <img
+          className="w-[122px] h-[29px] md:w-[136px] md:h-[32px]"
+          src={logo}
+          alt=""
+        />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -65,8 +69,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex gap-5">
-        <a className="btn rounded-full">Sign In</a>
-        <a className="btn btn-secondary rounded-full">Sign Up</a>
+        <a className="btn btn-sm md:btn rounded-full text-[9px] md:text-[14px]">
+          Sign In
+        </a>
+        <a className="btn btn-sm md:btn btn-secondary rounded-full text-[9px] md:text-[14px]">
+          Sign Up
+        </a>
       </div>
     </div>
   );
