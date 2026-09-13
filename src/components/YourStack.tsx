@@ -38,7 +38,9 @@ const YourStack = ({
         <h2 className="text-[20px] font-bold text-slate-800">Your Stack</h2>
 
         <p className="mt-1 text-[14px] text-slate-400">
-          {addToStack.length} Technology Selected
+          {addToStack.length > 0
+            ? ` ${addToStack.length} Technology Selected`
+            : "No technolgies selected yet"}
         </p>
       </div>
       {/* Selected Technologies */}
