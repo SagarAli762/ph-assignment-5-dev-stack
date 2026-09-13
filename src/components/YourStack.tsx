@@ -27,6 +27,7 @@ const YourStack = ({
   const handleRemoveAll = (): void => {
     setAddToStack([]);
     setResetAll(true);
+    toast.error("All technology removed successfully");
   };
 
   return (
