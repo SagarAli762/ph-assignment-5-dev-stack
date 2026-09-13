@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Technologies from "./components/Technologies";
 import type { Itechnologies } from "./types/technologiesType";
+import Footer from "./components/Footer";
 
 function App() {
   const technologiesFetch = async (): Promise<Itechnologies[]> => {
@@ -19,6 +20,7 @@ function App() {
       <Suspense fallback={<h2>Loading....</h2>}>
         <Technologies technologiesPromise={technologiesPromise}></Technologies>
       </Suspense>
+      <Footer></Footer>
     </>
   );
 }
