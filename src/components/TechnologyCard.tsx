@@ -41,16 +41,25 @@ const TechnologyCard = ({
     toast.success(`${technology.name} added successfully`);
   };
   return (
-    <div className="card w-full max-w-[316px] border border-slate-200 bg-base-100 shadow-sm">
+    <div className="card  border border-slate-200 bg-base-100 shadow-sm">
       <div className="card-body p-6">
         {/* Icon + Badge */}
         {/* Icon + Badge */}
         <div className="flex items-start justify-between">
-          <img
-            src={technology.icon}
-            alt={`${technology.name} icon`}
-            className="h-8 w-8 object-contain"
-          />
+          <div className="flex flex-row md:flex-col gap-4 justify-center items-center">
+            <div className=" rounded-md bg-slate-100 px-2 py-1 text-slate-600">
+              <img
+                src={technology.icon}
+                alt={`${technology.name} icon`}
+                className="h-8 w-8 object-contain"
+              />
+            </div>
+            <div>
+              <h2 className="text-[21px] font-bold leading-7 text-slate-900">
+                {technology.name}
+              </h2>
+            </div>
+          </div>
 
           <span className="badge badge-soft badge-info px-3 py-3">
             {technology.badge}
@@ -59,11 +68,7 @@ const TechnologyCard = ({
 
         {/* Title + Description */}
         <div className="mt-5">
-          <h2 className="text-[21px] font-bold leading-7 text-slate-900">
-            {technology.name}
-          </h2>
-
-          <p className="mt-2 text-sm leading-[21px] text-slate-500">
+          <p className="mt-2 text-sm leading-[21px] text-slate-500 text-start">
             {technology.description}
           </p>
         </div>

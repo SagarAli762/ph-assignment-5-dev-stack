@@ -31,7 +31,8 @@ const YourStack = ({
   };
 
   return (
-    <div className="w-full max-w-[316px] rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+    <div className="mx-auto w-full  rounded-xl border border-slate-200 bg-white p-3 shadow-sm md:mx-0">
+      {" "}
       {/* Header */}
       <div className="px-1">
         <h2 className="text-[20px] font-bold text-slate-800">Your Stack</h2>
@@ -40,7 +41,6 @@ const YourStack = ({
           {addToStack.length} Technology Selected
         </p>
       </div>
-
       {/* Selected Technologies */}
       <div className="mt-3 space-y-2">
         {addToStack.length === 0 ? (
@@ -59,7 +59,6 @@ const YourStack = ({
           ))
         )}
       </div>
-
       {/* Remove All */}
       <button
         onClick={handleRemoveAll}
