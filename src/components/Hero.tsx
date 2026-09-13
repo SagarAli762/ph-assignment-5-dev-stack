@@ -15,10 +15,10 @@ const Hero = () => {
           side by side, and put together the stack that fits your next project.
         </p>
         <div className="flex gap-5 justify-center">
-          <button className="py-[12px] px-[16px] rounded-[8px] font-semibold text-[14px] text-[#FFFFFF] bg-gradient-to-r from-[#F97316] to-[#EC4899]">
+          <button className="w-[168px] h-[40px] flex items-center justify-center rounded-[8px] font-semibold text-[12px] md:text-[14px] text-[#FFFFFF] bg-gradient-to-r from-[#F97316] to-[#EC4899]">
             Explore Technologies
           </button>
-          <button className="border-[#E5E7EB] border-1 py-[12px] px-[48px] rounded-[8px] font-semibold text-[14px] ">
+          <button className="border-[#E5E7EB] border-1 w-[170px] h-[42px] rounded-[8px] font-semibold text-[12px] md:text-[14px] ">
             Learn More
           </button>
         </div>
