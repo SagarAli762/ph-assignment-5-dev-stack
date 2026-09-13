@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import type { Itechnologies } from "../types/technologiesType";
 import YourStackCard from "./YourStackCard";
 
@@ -15,7 +16,8 @@ const YourStack = ({
   setResetAll,
 }: YourStackProps) => {
   const handleRemovedIdFromStack = (stakedId: string): void => {
-    setAddToStack(addToStack.filter((item) => item.id !== stakedId));
+    const restAddToStack = addToStack.filter((item) => item.id !== stakedId);
+    setAddToStack(restAddToStack);
     setRemovedTechnologyId(stakedId);
   };
   const handleRemoveAll = (): void => {

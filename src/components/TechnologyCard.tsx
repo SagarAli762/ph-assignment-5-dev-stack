@@ -2,6 +2,7 @@ import type React from "react";
 import type { Itechnologies } from "../types/technologiesType";
 import { FaStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   technology: Itechnologies;
@@ -37,6 +38,7 @@ const TechnologyCard = ({
   const handleAddedToStack = (): void => {
     setAddToStack([...addToStack, technology]);
     setIsAdded(true);
+    toast.success(`${technology.name} added successfully`);
   };
   return (
     <div className="card w-full max-w-[316px] border border-slate-200 bg-base-100 shadow-sm">
