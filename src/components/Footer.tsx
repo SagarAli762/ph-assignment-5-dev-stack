@@ -10,11 +10,15 @@ const Footer = () => {
           <div className="text-center md:col-span-5 md:text-left">
             {/* Logo */}
             <div className="flex items-center justify-center gap-2 md:justify-start">
-              <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-pink-500 to-purple-600 text-[9px] md:text-[18px] font-bold text-white">
+              <div
+                className="flex h-[24px] w-[24px] items-center justify-center
+               rounded-md bg-gradient-to-tr from-[#EC4899] to-[#7C3AED] 
+              text-[12px] font-bold text-white"
+              >
                 DS
               </div>
 
-              <h2 className="text-sm font-bold text-slate-800">
+              <h2 className="text-[18px] font-bold text-slate-800">
                 Dev <span className="text-pink-500">Stack</span>
               </h2>
             </div>

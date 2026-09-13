@@ -1,4 +1,4 @@
-import logo from "../assets/logo-text.png";
+//import logo from "../assets/logo-text.png";
 const Navbar = () => {
   return (
     <div className="navbar container mx-auto">
@@ -43,11 +43,16 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <img
-          className="w-[122px] h-[29px] md:w-[136px] md:h-[32px]"
-          src={logo}
-          alt=""
-        />
+        {/* Logo */}
+        <div className="flex items-center justify-center gap-2 md:justify-start">
+          <div className="flex h-[24px] md:h-[32px] w-[24px] md:w-[32px] items-center justify-center rounded-md bg-gradient-to-tr from-[#EC4899] to-[#7C3AED] text-[9px] md:text-[14px] font-bold text-white">
+            DS
+          </div>
+
+          <h2 className="text-[11px] md:text-[20px] font-bold text-slate-800">
+            Dev <span className="text-pink-500">Stack</span>
+          </h2>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
